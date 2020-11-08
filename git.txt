@@ -76,7 +76,7 @@ git remote (get remote name)
 git remote -v (get remote list)
 git remote show <remote>
 git remote update <remote>
-git remote update <remote> --prune (haalt lege branches weg die gefetched zijn)
+git remote update <remote> --prune (deletes empty fetched branches)
 
 
 push / pull / fetch
