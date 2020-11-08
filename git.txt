@@ -1,0 +1,90 @@
+git hash-object <hash> (-w)
+git cat-file -p/-s/-t <hash>
+git mktree
+find .git/objects -type f
+
+shasum genereren:
+delimiter is meestal \0
+echo -e "<type> <size><delimiter><content>" | shasum 
+
+Tree permissions
+040000 Directory
+100644 regular non-executable file
+100664 regular non-executable group-writeable file
+100755 regular executable file
+120000 symbolic link
+160000 gitlink
+
+Get repo -> staging area
+git read-tree <hash>
+
+staging area lezen
+git ls-files
+git ls-files -s (table format)
+
+staging area -> working directory
+git checkout-index -a
+
+Initieer nieuwe git
+git init
+git config --global user.name <name>
+git config --global user.email <email>
+git config --list
+
+basic git commands
+git status
+git add (start tracking new file or modified to staged)
+git rm (staged to untracked)
+git commit -m <description> (staged to commit)
+git log
+git checkout <branch/commit>(checkout specific branch/commit moves head)
+git checkout -b <branch> (makes new branch and does a checkout on it)
+
+Verwijder ongebruikte objecten
+git prune
+git remote prune <remote>
+
+Branches
+git branch management
+git branch (list all local branches)
+git branch <name> (create new branch)
+git branch -a (list all local and remote branches)
+git branch -r (list all remote branches)
+git branch -vv (tracking branches)
+git push <remote> -d <branch> delete branch on repository
+git branch -d <name> (delete branch locally)
+git branch -m <old> <new> (rename branch)
+git checkout -b <name> (create new branch and checkout)
+
+.git structuur
+branches: .git/refs/heads
+objects: .git/objects
+
+Git detached head state = when head points to specific commit instead of branch 
+
+git clone <url> <targetfolder>
+cat <pack> | git unpack-objects
+
+
+Merging
+git merge FETCH_HEAD (merge local branch and remote branch (same branch) after fetch)
+git merge <branch> (fastforward merge from current branch to <branch> alleen mogelijk als er geen wijzigingen zijn in de current branch na moment van branching)
+git merge <branch> (3 way merge, merge the given branch into the current branch)
+
+Remotes
+git remote (get remote name)
+git remote -v (get remote list)
+git remote show <remote>
+git remote update <remote>
+git remote update <remote> --prune (haalt lege branches weg die gefetched zijn)
+
+
+push / pull / fetch
+git fetch
+git pull
+git push (-v)
+git push --set-upstream <remote> <branch> / git push -u <remote> <branch> (push new branch to repository) 
+
+
+git show-ref
+git show-ref <branch>
