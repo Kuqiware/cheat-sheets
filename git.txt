@@ -96,3 +96,13 @@ Forks
 git remote add <remote(upstream)> <url> (set pull remote for fork parent)
 git fetch <remote> (-v) (fetch from remote)
 git pull <remote> <branch> (pull from remote)
+
+Tags
+git tag <tag> (add tag lightweight)
+git tag -a <tag> -m <message> (add tag annotated)
+git tag -v <tag> (tag details)
+git show (shows latest? commit)
+git show <tag> (show commit with specific tag)
+ls .git/refs/tags/ (list tags)
+cat .git/refs/tags/<tag> (get content of tag)
+git push --tags
