@@ -106,3 +106,9 @@ git show <tag> (show commit with specific tag)
 ls .git/refs/tags/ (list tags)
 cat .git/refs/tags/<tag> (get content of tag)
 git push --tags
+
+Rebase order:
+git checkout <to-rebase>
+git rebase <targetbranch> (rebase current branch on top of the given branch)
+git checkout <targetbranch>
+git merge <to-rebase>
