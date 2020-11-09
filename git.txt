@@ -112,3 +112,14 @@ git checkout <to-rebase>
 git rebase <targetbranch> (rebase current branch on top of the given branch)
 git checkout <targetbranch>
 git merge <to-rebase>
+
+.gitignore
+Files are ignored as soon as path is put in .gitignore
+ignore previously commited file method 1:
+add ignore rule to .gitignore
+delete file in working directory
+commit changes
+add previously deleted file back into directory
+ignore previously commited file method 2:
+add ignore rule to .gitignore
+git rm --cached <filename>
