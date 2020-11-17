@@ -2,6 +2,7 @@ git hash-object <hash> (-w)
 git cat-file -p/-s/-t <hash>
 git mktree
 find .git/objects -type f
+cat .git/HEAD
 
 shasum genereren:
 delimiter is meestal \0
@@ -123,3 +124,47 @@ add previously deleted file back into directory
 ignore previously commited file method 2:
 add ignore rule to .gitignore
 git rm --cached <filename>
+
+detached head
+git checkout <sha1> (checksout a specific commit and enter detached head state)
+git branch <new-branch-name> <hash-latest-commit> (keep changes in a new branch)
+git checkout -b <branch-name> (retain changes in a new branch)
+
+maak git lg command
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
+
+git log --grep="<search-query>"
+git log --author="<author-name>"
+git log --graph
+git log --oneline
+git log --stat
+git log --merges
+git log --no-merges
+git log --pretty=format:"<format of log line>"
+git log -<number> (only shows an amount of commits equel to number)
+git shortlog -n(sort by quanitty of commits)
+git shortlog -s (summary)
+git shortlog -e (email)
+
+Save files for later
+git stash
+git stash pop
+ls .git/refs/stash
+cat .git/refs/stash
+
+git reflog (show <branch>)
+git checkout HEAD@{<nr>}
+
+git cherry-pick (--no-commit) <commit-hash> (puts commit into current branch)
+
+git revert HEAD (makes a new commit that has reverted changes of last commit) 
+git commit --amend -m "<new messsage>" (change message of last commit)
+git commit --amend --author="<new author> <<email>>" (change author of last commit)
+
+git gc (garbage collect)
+
+Do not use this command on public branches (destructive command)
+git reset --hard / --mixed(default)/ --soft <commit-hash> (reset to specific commit, discards commits)
+
+
+Squashing is making a feature branch, for example with 3 commits, merge into another branch with only 1 commit total.
